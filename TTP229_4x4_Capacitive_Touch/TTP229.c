@@ -47,7 +47,7 @@ UINT8_T TTP229_GETKEY(VOID){
      RETURN NUM;
 }
 
-UINT8_T KEYPAD_CONVERT(UINT8_T NUM){
+INT8_T KEYPAD_CONVERT(UINT8_T NUM){
      SWITCH(NUM){
           CASE KEYPAD_1:
                RETURN 1;
@@ -70,7 +70,7 @@ UINT8_T KEYPAD_CONVERT(UINT8_T NUM){
           CASE KEYPAD_0:
                RETURN 0;
           DEFAULT:
-               RETURN 0;
+               RETURN -1;
      }
 }
 
