@@ -36,67 +36,45 @@
 //#DEFINE KEYPAD_SHARP     15
 
 UINT8_T TTP229_GETKEY(VOID){
-     UINT8_T I=0,NUM=0;
-     FOR(I=0;I<16;I++){
-          TTP229_SCL_SET(0);
-          IF(!INPUT(TTP229_SDA)){
-               NUM=I+1;
-          }
-          TTP229_SCL_SET(1);
-     }
-     RETURN NUM;
+   UINT8_T I=0,NUM=0;
+      FOR(I=0;I<16;I++){
+         TTP229_SCL_SET(0);
+         IF(!INPUT(TTP229_SDA)){
+            NUM=I+1;
+         }
+         TTP229_SCL_SET(1);
+      }
+   RETURN NUM;
 }
 
 INT8_T KEYPAD_CONVERT(UINT8_T NUM){
-     SWITCH(NUM){
-          CASE KEYPAD_1:
-               RETURN 1;
-          CASE KEYPAD_2:
-               RETURN 2;
-          CASE KEYPAD_3:
-               RETURN 3;
-          CASE KEYPAD_4:
-               RETURN 4;
-          CASE KEYPAD_5:
-               RETURN 5;
-          CASE KEYPAD_6:
-               RETURN 6;
-          CASE KEYPAD_7:
-               RETURN 7;
-          CASE KEYPAD_8:
-               RETURN 8;
-          CASE KEYPAD_9:
-               RETURN 9;
-          CASE KEYPAD_0:
-               RETURN 0;
-          DEFAULT:
-               RETURN -1;
-     }
+   SWITCH(NUM){
+      CASE KEYPAD_1: RETURN 1;
+      CASE KEYPAD_2: RETURN 2;
+      CASE KEYPAD_3: RETURN 3;
+      CASE KEYPAD_4: RETURN 4;
+      CASE KEYPAD_5: RETURN 5;
+      CASE KEYPAD_6: RETURN 6;
+      CASE KEYPAD_7: RETURN 7;
+      CASE KEYPAD_8: RETURN 8;
+      CASE KEYPAD_9: RETURN 9;
+      CASE KEYPAD_0: RETURN 0;
+      DEFAULT:       RETURN -1;
+   }
 }
 
 UINT8_T KEYPAD_CONVERTTOCHAR(UINT8_T NUM){
-     SWITCH(NUM){
-          CASE KEYPAD_1:
-               RETURN '1';
-          CASE KEYPAD_2:
-               RETURN '2';
-          CASE KEYPAD_3:
-               RETURN '3';
-          CASE KEYPAD_4:
-               RETURN '4';
-          CASE KEYPAD_5:
-               RETURN '5';
-          CASE KEYPAD_6:
-               RETURN '6';
-          CASE KEYPAD_7:
-               RETURN '7';
-          CASE KEYPAD_8:
-               RETURN '8';
-          CASE KEYPAD_9:
-               RETURN '9';
-          CASE KEYPAD_0:
-               RETURN '0';
-          DEFAULT:
-               RETURN 0;
-     }
+   SWITCH(NUM){
+      CASE KEYPAD_1: RETURN '1';
+      CASE KEYPAD_2: RETURN '2';
+      CASE KEYPAD_3: RETURN '3';
+      CASE KEYPAD_4: RETURN '4';
+      CASE KEYPAD_5: RETURN '5';
+      CASE KEYPAD_6: RETURN '6';
+      CASE KEYPAD_7: RETURN '7';
+      CASE KEYPAD_8: RETURN '8';
+      CASE KEYPAD_9: RETURN '9';
+      CASE KEYPAD_0: RETURN '0';
+      DEFAULT:       RETURN 0;
+   }
 }
